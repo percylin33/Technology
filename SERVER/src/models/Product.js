@@ -3,20 +3,20 @@ const {DataTypes} =require("sequelize");
 module.exports = (sequelize) => {
     sequelize.define("product", {
         id:{
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
+            type: DataTypes.INTEGER,
             primaryKey: true,
+            autoIncrement: true,
         },
         name:{
             type: DataTypes.STRING,
             allowNull: false,
         },
         almacenamiento:{
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         memoria:{
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         procesador:{
