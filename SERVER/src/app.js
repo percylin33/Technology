@@ -2,6 +2,8 @@ const express = require('express');
 const cookieParser = require("cookie-parser");
 const morgan = require('morgan')
 
+require("./db")
+
 const server =express();
 
 server.name = 'SERBER'
