@@ -6,6 +6,8 @@ const putProduct = require("../controllers/putProduct")
 const router = Router();
 
 router.get("/", async (req ,res)=>{
+    const {name} = req.query
+    
     try {
         const data = await allGetProduct()
         console.log(data);
@@ -19,7 +21,7 @@ router.get("/", async (req ,res)=>{
 router.post("/", async (req ,res)=>{
     const {name, almacenamiento, memoria, procesador, resolucion} = req.body;
     try {
-        const data =postProduct(name, almacenamiento, memoria, procesador, resolucion)
+        postProduct(name, almacenamiento, memoria, procesador, resolucion)
     res.status(200).send("producto creado")
     } catch (error) {
         res.status(500).json({error: error.message})
@@ -28,7 +30,7 @@ router.post("/", async (req ,res)=>{
 router.put("/", async (req ,res)=>{
     const {id, name, almacenamiento, memoria, procesador, resolucion} = req.body;
     try {
-        const data =await putProduct(id, name, almacenamiento, memoria, procesador, resolucion)
+        await putProduct(id, name, almacenamiento, memoria, procesador, resolucion)
         
     res.status(200).send("actualizado")
     } catch (error) {
