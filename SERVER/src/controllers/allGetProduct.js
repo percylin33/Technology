@@ -1,11 +1,11 @@
 //const allProductHandler = require("../handlers/allProductHandler")
-const axios = require("axios")
+
 const {Product} = require("../db")
 
-    let data = ''
+    
 const allGetProduct = async () => {
-   
-    console.log(data);
- return data;
+    const allProduct =  await Product.findAll()
+    
+ return allProduct;
 }
 module.exports = allGetProduct;

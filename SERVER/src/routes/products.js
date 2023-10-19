@@ -6,8 +6,9 @@ const router = Router();
 
 router.get("/", async (req ,res)=>{
     try {
-        const data =allGetProduct()
-    res.status(200).json({data})
+        const data = await allGetProduct()
+        console.log(data);
+    res.status(200).json(data)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
