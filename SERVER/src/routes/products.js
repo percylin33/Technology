@@ -29,8 +29,8 @@ router.put("/", async (req ,res)=>{
     const {id, name, almacenamiento, memoria, procesador, resolucion} = req.body;
     try {
         const data =await putProduct(id, name, almacenamiento, memoria, procesador, resolucion)
-        console.log(data);
-    res.status(200).json({data})
+        
+    res.status(200).send("actualizado")
     } catch (error) {
         res.status(500).json({error: error.message})
     }
