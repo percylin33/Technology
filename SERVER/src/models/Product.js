@@ -11,6 +11,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        
         almacenamiento:{
             type: DataTypes.INTEGER,
             allowNull: false,
