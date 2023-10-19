@@ -2,6 +2,7 @@ const {Router} = require("express");
 const allGetProduct = require("../controllers/allGetProduct")
 const postProduct = require("../controllers/postProduct")
 const putProduct = require("../controllers/putProduct")
+const getProduct = require("../controllers/getProduct")
 
 const router = Router();
 
@@ -9,9 +10,16 @@ router.get("/", async (req ,res)=>{
     const {name} = req.query
     
     try {
-        const data = await allGetProduct()
-        console.log(data);
-    res.status(200).json(data)
+        if (!name) {
+            const data = await allGetProduct()
+            console.log(data);
+            res.status(200).json(data) 
+        }else{
+            console.log(name);
+            const dataName = await getProduct(name)
+            res.status(200).json(dataName) 
+        }
+       
     } catch (error) {
         res.status(500).json({error: error.message})
     }
