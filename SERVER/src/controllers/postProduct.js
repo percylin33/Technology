@@ -6,4 +6,4 @@ const postProduct = async (name, almacenamiento, memoria, procesador, resolucion
     console.log("esta");
  
 }
-module.exports = postProduct;
+module.exports = postProduct;   
