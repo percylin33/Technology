@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import ButtonSecion from '../ButtonSecion/ButtonSecion';
 
 
 function Navbar() {
@@ -22,6 +23,12 @@ function Navbar() {
                             <Link to={li.link} className='text-gray-800 hover:text-gray-400 duration-500'>{li.name}</Link>
                         </li>
                     ))}
+                    <ButtonSecion>
+                        login
+                    </ButtonSecion>
+                    <ButtonSecion>
+                        crear cuenta 
+                    </ButtonSecion>
                 </ul>
             </div>
         </div>
