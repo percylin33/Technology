@@ -6,14 +6,14 @@ import logo from '../../acces/logo.png'
 
 function Navbar() {
     let linkNav = [
-        {name: "Home", link: "/home"},
-        {name: "Gallery", link: "/"},
-        {name: "About", link: "/"},
+        {name: "Home", link: "/"},
+        {name: "Gallery", link: "/gallery"},
+        {name: "About", link: "/about"},
     ];
     let [open, setOpen] = useState(false);
 
     return (
-        <div className='shadow-md w-full fixed top-0 left-0'>
+        <div className='shadow-md w-full sticky  top-0 left-0'>
             <div className='md:flex bg-negro items-center justify-between  bg-white py-4 md:px-10 px-7'>
                 <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-gray-800'>
                     <img src={logo} alt="imagen logo" className='w-14 h-14' />
@@ -31,7 +31,7 @@ function Navbar() {
                         </li>
                     ))}
                     <ButtonSecion>
-                        login
+                        <Link to='/login'>login</Link> 
                     </ButtonSecion>
                     {/* <ButtonSecion>
                         crear cuenta 
