@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import ButtonSecion from '../ButtonSecion/ButtonSecion';
 import { IoMenu, IoCloseCircleSharp } from 'react-icons/io5';
 import { useState } from 'react';
+import { TiShoppingCart } from 'react-icons/ti';
 import logo from '../../acces/logo.png'
+
 
 function Navbar() {
     let linkNav = [
@@ -11,6 +13,10 @@ function Navbar() {
         {name: "About", link: "/about"},
     ];
     let [open, setOpen] = useState(false);
+
+    const closeMenu = () => {
+        setOpen(false);
+    };
 
     return (
         <div className='shadow-md w-full sticky  top-0 left-0'>
@@ -26,16 +32,14 @@ function Navbar() {
                 </div>
                 <ul className={`bg-negro md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-[90px] opacity-100':'top-[-490px] md:opacity-100 opacity-0'} `}>
                     {linkNav.map((li) => (
-                        <li key={li.name} className='md:ml-8 text-xl md:my-0 my-7'>
-                            <Link to={li.link} className='text-gris hover:text-gray-400 duration-500'>{li.name}</Link>
+                        <li key={li.name} className='md:ml-8 text-xl md:my-0 my-7' onClick={closeMenu}>
+                            <Link to={li.link} className='text-gris hover:text-gray-400 duration-500 '>{li.name}</Link>
                         </li>
                     ))}
+                    <TiShoppingCart size={30} className='mb-6 md:mb-0  md:ml-6 text-gris' onClick={closeMenu}/>
                     <ButtonSecion>
-                        <Link to='/login'>login</Link> 
+                        <Link to='/login' onClick={closeMenu}>login</Link> 
                     </ButtonSecion>
-                    {/* <ButtonSecion>
-                        crear cuenta 
-                    </ButtonSecion> */}
                 </ul>
             </div>
         </div>
